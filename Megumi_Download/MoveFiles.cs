@@ -154,6 +154,16 @@ namespace Megumi_Download
                         }
                     }
 
+                    bool configfileexist = (System.IO.File.Exists(Path.GetTempPath() + "MegumiDownloadTemp" + "\\" + "temppath.txt") ? true : false);
+                    bool muxfileexist = (System.IO.File.Exists(Path.GetTempPath() + "MegumiDownloadTemp" + "\\" + "temppathfile.txt") ? true : false);
+                    if (configfileexist == true && muxfileexist == true)
+                    {
+                        Remux mux = new Remux();
+                        mux.LoadConfig();
+                        mux.Start();
+                        mux.Mux();
+                    }
+
                 }
 
             }
