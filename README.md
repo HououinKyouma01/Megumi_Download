@@ -1,5 +1,5 @@
 # Megumi_Download
-Anime downloader &amp; subtitle demux/mux + replace
+Anime downloader &amp; automatic subtitle replace, demux/mux
 
 This program performs 2 basic functions. More detailed description below. 
 
