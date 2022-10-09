@@ -17,7 +17,7 @@ I wrote this program with my setup in mind, as I could not find anything that su
 The first idea was to just download anime episodes from the seedbox and move them to the appropriate folders with the series name, season number and name them in such a way that they are recognizable by Kodi.
 
 This I managed to realize years ago, but I didn't see the point of sharing it with the world. 
-Lately, I've been getting more and more irritated seeing pointless changes in the official anime credits. This forced me to manually demux the mkv files, edit the files with the help of find and replace and re-mux. It was taking some time, so I thought to streamline my code to do it myself.
+Lately, I've been getting more and more irritated seeing pointless changes in the official anime subs. This forced me to manually demux the mkv files, edit the files with the help of find and replace and re-mux. It was taking some time, so I thought to streamline my code to do it myself.
 
 **How to use**
 
