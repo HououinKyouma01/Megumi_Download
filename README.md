@@ -60,6 +60,8 @@ Here we specify the parameters of the SSH/SFTP connection to our seedbox. REMOTE
 > SAVEINFO=ON
 
  - groups.megumi
+
+
 This is where fansub groups should be listed. One per line. For example:
 
 > Doki
@@ -75,6 +77,8 @@ This is where fansub groups should be listed. One per line. For example:
 > MTBB
 
  - serieslist.megumi
+
+
 Here the titles of the series we are watching - one per line. 3 parameters separated by "|" are required.
 Name of File|Name of Folder With Series|Number of Season. For example:
 
