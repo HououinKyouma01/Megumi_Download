@@ -6,7 +6,7 @@ This program performs 2 basic functions. More detailed description below.
 TL;DR
 1. Downloading anime episodes and cataloging them accordingly in compliance with kodi and TVDB naming format. 
 
-2. Replacing words/names in subtitles (with regex) based on custom list and automatic remux on download/move.
+2. Automatic replacing words/names in subtitles (with regex) based on custom list and automatic remux on download/move.
 
 **BACKGROUND**
 
