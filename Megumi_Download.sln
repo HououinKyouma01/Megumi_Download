@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Megumi_Download", "Megumi_Download\Megumi_Download.csproj", "{7F30A71E-B5AE-4BFD-992D-82BA2DECF057}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9144DF5C-2421-43CB-96CA-4A953F9F3EAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F30A71E-B5AE-4BFD-992D-82BA2DECF057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F30A71E-B5AE-4BFD-992D-82BA2DECF057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F30A71E-B5AE-4BFD-992D-82BA2DECF057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F30A71E-B5AE-4BFD-992D-82BA2DECF057}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EDFDC60-5CBB-4A9F-BB58-2D1C80929CC5}
+	EndGlobalSection
+EndGlobal
