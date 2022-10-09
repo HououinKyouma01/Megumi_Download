@@ -34,6 +34,8 @@ They should be placed in a directory together with the main executable file of t
 Next we have the configuration files. Sample files are included in the "release"
 
  - config.megumi
+
+
 Here we specify the parameters of the SSH/SFTP connection to our seedbox. REMOTEPATH - the path on the server where the files are located. LOCALPATH - where our local anime library is located. KODISWITCH - whether you want a message to appear when the download is finished in KODI (and then the data to connect to the local KODI server). SAVEINFO - the ability to save the original file names to a txt file in the folder with the season of the series.
 > USER=user 
 > 
