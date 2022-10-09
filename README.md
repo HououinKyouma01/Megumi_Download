@@ -19,9 +19,11 @@ The first idea was to just download anime episodes from the seedbox and move the
 This I managed to realize years ago, but I didn't see the point of sharing it with the world. 
 Lately, I've been getting more and more irritated seeing pointless changes in the official anime credits. This forced me to manually demux the mkv files, edit the files with the help of find and replace and re-mux. It was taking some time, so I thought to streamline my code to do it myself.
 
+**How to use**
+
 Now I will briefly explain how it works.
 
-First - you need 2 external tools: 
+First - you need 2 external tools (if you want to use replace feature): 
 - mkvextract.exe 
 - mkvmerge.exe
 Both included in [MKVToolNix](https://www.fosshub.com/MKVToolNix.html)
