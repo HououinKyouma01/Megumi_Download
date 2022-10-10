@@ -12,7 +12,7 @@ OR
 
 3. Cataloging files and renaming them accordingly in compliance with kodi and TVDB naming format. 
 
-4. Automatic replacing words/names in subtitles (with regex) based on custom list and automatic remux on download/move (useful to restore original Japanese name order, to correc name romanization, replace localized words etc).
+4. Automatic replacing words/names in subtitles (with regex) based on custom list and automatic remux on download/move (useful to restore original Japanese name order, to correct name romanization, replace localized words etc).
 
 
 
