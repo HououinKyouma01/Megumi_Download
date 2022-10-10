@@ -4,9 +4,18 @@ Anime downloader &amp; automatic subtitle replace, demux/mux
 This program performs 2 basic functions. More detailed description below. 
 
 TL;DR
-1. Downloading anime episodes and cataloging them accordingly in compliance with kodi and TVDB naming format. 
+1. Downloading anime episodes from seedbox and moving them to folders with series name/season number
 
-2. Automatic replacing words/names in subtitles (with regex) based on custom list and automatic remux on download/move.
+OR
+
+2. Moving locally downladed filesto folders with series name/season number
+
+3. Cataloging files and renaming them accordingly in compliance with kodi and TVDB naming format. 
+
+4. Automatic replacing words/names in subtitles (with regex) based on custom list and automatic remux on download/move.
+
+
+
 
 **BACKGROUND**
 
@@ -36,7 +45,7 @@ Next we have the configuration files. Sample files are included in the "release"
  - config.megumi
 
 
-Here we specify the parameters of the SSH/SFTP connection to our seedbox. REMOTEPATH - the path on the server where the files are located. LOCALPATH - where our local anime library is located. KODISWITCH - whether you want a message to appear when the download is finished in KODI (and then the data to connect to the local KODI server). SAVEINFO - the ability to save the original file names to a txt file in the folder with the season of the series.
+Here we specify the parameters of the SSH/SFTP connection to our seedbox. **REMOTEPATH** - the path on the server where the files are located. **LOCALPATH** - where our local anime library is located. **KODISWITCH** - whether you want a message to appear when the download is finished in KODI (and then the data to connect to the local KODI server). **SAVEINFO** - the ability to save the original file names to a txt file in the folder with the season of the series. **MOVELOCAL** - puts the program into the mode of transferring locally downloaded files completely bypassing downloads from an external server. In this case, enter the path where the files are downloaded into the **LOCALTEMP** variable. **RENAME** jest parametrem określającym czy program ma zmieniać nazwy pobranych plików na te zgodne z TVDB oraz Kodi czy zostawiać oryginalne. 
 > USER=user 
 > 
 > PASSWORD=pass 
@@ -58,6 +67,12 @@ Here we specify the parameters of the SSH/SFTP connection to our seedbox. REMOTE
 > KODIPASS=test 
 > 
 > SAVEINFO=ON
+> 
+> MOVELOCAL=OFF
+> 
+> LOCALTEMP=C:\Downloads\
+> 
+> RENAME=ON
 
  - groups.megumi
 
