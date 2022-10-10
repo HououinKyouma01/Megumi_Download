@@ -104,6 +104,7 @@ namespace Megumi_Download
             text = text.Replace("W-w", "W-W");
             text = text.Replace("Y-y", "Y-Y");
             text = text.Replace("Z-z", "Z-Z");
+            text = text.Replace("\\N", "\\N ");
             File.WriteAllText(configfile + "\\subs.ass", text);
 
             string[] subs = File.ReadAllLines(configfile + "subs.ass");
