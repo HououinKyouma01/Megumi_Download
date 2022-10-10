@@ -40,10 +40,16 @@ namespace Megumi_Download
         }
 
 
-        public void Start(string temppath, string animepath, string kodiswtitch, string saveinfo, string kodiaddress = "0", string kodiuser = "0", string kodipass = "0", string kodiport = "0")
+        public void Start(string temppath, string animepath, string kodiswtitch, string saveinfo, string movelocalonly, string renamefiles, string kodiaddress = "0", string kodiuser = "0", string kodipass = "0", string kodiport = "0")
         {
-            temppath = temppath + "MegumiDownloadTemp" + "\\";
-            Directory.CreateDirectory(temppath);
+            if (movelocalonly == "OFF")
+            {
+                temppath = temppath + "MegumiDownloadTemp" + "\\";
+                Directory.CreateDirectory(temppath);
+
+            }
+            
+           
             string[] filelist = Directory.GetFiles(temppath)
                              .Select(Path.GetFileName)
                              .ToArray();
@@ -63,10 +69,21 @@ namespace Megumi_Download
                         {
                             if (epnum_ext.Success)
                         {
+                            string nameafter = "";
                             Console.WriteLine("New episode of " + series[i] + " found");
                             Console.WriteLine("Moving " + epnum_ext.Groups[1].Value + " episode of " + series[i] + " to " + animepath + seriesdirs[i] + "\\" + "Season " + season[i]);
-                            string nameafter = "S0" + season[i] + "E" + epnum_ext.Groups[1].Value + epnum_ext.Groups[6].Value;
-                            Directory.CreateDirectory(animepath + seriesdirs[i] + "\\" + "Season " + season[i]);        
+
+                                if (renamefiles == "ON")
+                                { 
+                                        nameafter = "S0" + season[i] + "E" + epnum_ext.Groups[1].Value + epnum_ext.Groups[6].Value;
+                                }
+                                else
+                                {
+                                    nameafter = file;
+
+                                }
+
+                                Directory.CreateDirectory(animepath + seriesdirs[i] + "\\" + "Season " + season[i]);        
 
                             if (File.Exists(animepath + seriesdirs[i] + "\\" + "Season " + season[i] + "\\" + nameafter))
                             {
@@ -152,17 +169,23 @@ namespace Megumi_Download
 
                             }
                         }
+                        bool configfileexist = (System.IO.File.Exists(temppath + "temppath.txt") ? true : false);
+                        bool muxfileexist = (System.IO.File.Exists(temppath + "temppathfile.txt") ? true : false);
+
+
+
+
+
+                        if (configfileexist == true && muxfileexist == true)
+                        {
+                            Remux mux = new Remux(temppath, movelocalonly);
+                            mux.LoadConfig();
+                            mux.Start();
+                            mux.Mux();
+                        }
                     }
 
-                    bool configfileexist = (System.IO.File.Exists(Path.GetTempPath() + "MegumiDownloadTemp" + "\\" + "temppath.txt") ? true : false);
-                    bool muxfileexist = (System.IO.File.Exists(Path.GetTempPath() + "MegumiDownloadTemp" + "\\" + "temppathfile.txt") ? true : false);
-                    if (configfileexist == true && muxfileexist == true)
-                    {
-                        Remux mux = new Remux();
-                        mux.LoadConfig();
-                        mux.Start();
-                        mux.Mux();
-                    }
+
 
                 }
 

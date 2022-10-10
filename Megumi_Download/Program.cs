@@ -38,14 +38,20 @@ namespace Megumi_Download
                 string animepath = configdic["LOCALPATCH"];
                 string kodiswitch = configdic["KODISWITCH"];
                 string saveinfo = configdic["SAVEINFO"];
+                string movelocalonly = configdic["MOVELOCAL"];
+                string movelocalonlypath = configdic["LOCALTEMP"];
+                string renamefiles = configdic["RENAME"];
 
+                
 
+                if (movelocalonly == "OFF") {
                 string tempdir = Path.GetTempPath();
-
 
                 SFTPControl filessftp = new SFTPControl();
                 filessftp.LoadConfig();
                 filessftp.Listdir(host, username, password, remoteDirectory, tempdir);
+
+                
 
                 if (kodiswitch == "ON")
                 {
@@ -56,17 +62,45 @@ namespace Megumi_Download
                     string kodipass = configdic["KODIPASS"];
                     MoveFiles move = new MoveFiles();
                     move.LoadConfig();
-                    move.Start(tempdir, animepath, kodiaddress, kodiuser, kodipass, kodiport, kodiswitch, saveinfo);
+                    move.Start(tempdir, animepath, kodiaddress, kodiuser, kodipass, kodiport, kodiswitch, saveinfo, movelocalonly, renamefiles);
                 }
                 else
                 {
                     MoveFiles move = new MoveFiles();
                     move.LoadConfig();
-                    move.Start(tempdir, animepath, kodiswitch, saveinfo);
+                    move.Start(tempdir, animepath, kodiswitch, saveinfo, movelocalonly, renamefiles);
+                }
+
                 }
 
 
-            }
+                if (movelocalonly == "ON")
+                {
+                    string tempdir = movelocalonlypath;
+
+                    if (kodiswitch == "ON")
+                    {
+                        Debug.WriteLine("ON");
+                        string kodiaddress = configdic["KODIADDRESS"];
+                        string kodiport = configdic["KODIPORT"];
+                        string kodiuser = configdic["KODIUSER"];
+                        string kodipass = configdic["KODIPASS"];
+                        MoveFiles move = new MoveFiles();
+                        move.LoadConfig();
+                        move.Start(tempdir, animepath, kodiaddress, kodiuser, kodipass, kodiport, kodiswitch, saveinfo, movelocalonly, renamefiles);
+                    }
+                    else
+                    {
+                        MoveFiles move = new MoveFiles();
+                        move.LoadConfig();
+                        move.Start(tempdir, animepath, kodiswitch, saveinfo, movelocalonly, renamefiles);
+                    }
+
+
+                }
+
+
+                }
         }
     }
 }

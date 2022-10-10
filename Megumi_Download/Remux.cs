@@ -15,12 +15,33 @@ namespace Megumi_Download
     {
         bool mkvmerge = (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\" + "mkvmerge.exe") ? true : false);
         bool mkvextract = (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\" + "mkvextract.exe") ? true : false);
-
+        string configfile;
+        string muxfile;
         List<String> regexx = new List<String>();
         List<String> oldnames = new List<String>();
         List<String> newnames = new List<String>();
-        string configfile = File.ReadAllText(Path.GetTempPath() + "MegumiDownloadTemp" + "\\" + "temppath.txt");
-        string muxfile = File.ReadAllText(Path.GetTempPath() + "MegumiDownloadTemp" + "\\" + "temppathfile.txt");
+        public Remux(string temppath, string movelocalonly)
+        {
+
+
+
+            if (movelocalonly == "OFF")
+            {
+                configfile = File.ReadAllText(temppath + "MegumiDownloadTemp" + "\\" + "temppath.txt");
+                muxfile = File.ReadAllText(temppath + "MegumiDownloadTemp" + "\\" + "temppathfile.txt");
+
+            }
+            if (movelocalonly == "ON")
+            {
+                configfile = File.ReadAllText(temppath + "temppath.txt");
+                muxfile = File.ReadAllText(temppath + "temppathfile.txt");
+
+            }
+
+
+            
+        }
+
 
         public void LoadConfig()
         {
