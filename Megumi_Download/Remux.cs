@@ -147,8 +147,8 @@ namespace Megumi_Download
             var exitCode3 = remsub.ExitCode;
             File.Delete(configfile + "out.mkv");
             File.Delete(configfile + "subs.ass");
-           File.Delete(Path.GetTempPath() + "MegumiDownloadTemp" + "\\" + "temppath.txt");
-           File.Delete(Path.GetTempPath() + "MegumiDownloadTemp" + "\\" + "temppathfile.txt");
+           File.Delete(configfile);
+           File.Delete(muxfile);
         }
 
     }
