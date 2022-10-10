@@ -43,17 +43,26 @@ namespace Megumi_Download
                     File.Delete(configfile + "\\subs.ass");
                 }
                 // Make sure that only eng tracks left
-                var remsub = Process.Start(mkvmerge, " -o " + "\"" + configfile + "out.mkv" + "\"" + " --subtitle-tracks eng" + " \"" + muxfile + "\"");
-                
-                remsub.WaitForExit();
-                var exitCode = remsub.ExitCode;
+                Console.WriteLine("Cleaning MKV File");
+                Process cleanmkv = new Process();
+                cleanmkv.StartInfo.FileName = mkvmerge;
+                cleanmkv.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                cleanmkv.StartInfo.Arguments = "-o " + "\"" + configfile + "out.mkv" + "\"" + " --subtitle-tracks eng" + " \"" + muxfile + "\"";
+                cleanmkv.Start();
+                cleanmkv.WaitForExit();
 
                 // remove file after leaving only EN
                 File.Delete(muxfile);
 
-                var process = Process.Start(mkvextract, " \"" + configfile + "out.mkv"+ "\"" + " tracks 2:" + "\"" + configfile + "\\subs.ass" + "\"");
-                process.WaitForExit();
-                var exitCode2 = process.ExitCode;
+                //Extract subs - todo other languages set in config file
+                Console.WriteLine("Extracting Subtitle File");
+                Process extractass = new Process();
+                extractass.StartInfo.FileName = mkvextract;
+                extractass.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                extractass.StartInfo.Arguments = " \"" + configfile + "out.mkv" + "\"" + " tracks 2:" + "\"" + configfile + "\\subs.ass" + "\"";
+                extractass.Start();
+                extractass.WaitForExit();
+
 
                 string[] lines = File.ReadAllLines(configfile + "replace.txt");
                 
@@ -117,7 +126,7 @@ namespace Megumi_Download
 
                 for (int i = 0; i < oldnames.Count; i++)
                 {
-                    repl = Regex.Replace(repl, @"\b" + oldnames[i] + @"\b", newnames[i]);
+                    repl = Regex.Replace(repl, @"(?<!-)\b" + oldnames[i] + @"\b", newnames[i]);
                 }
 
                 File.AppendAllText(configfile + "\\subs.ass", repl + "\n");
@@ -131,9 +140,16 @@ namespace Megumi_Download
         {
             string mkvextract = Directory.GetCurrentDirectory() + "\\" + "mkvextract.exe";
             string mkvmerge = Directory.GetCurrentDirectory() + "\\" + "mkvmerge.exe";
-            var remsub = Process.Start(mkvmerge, " -o " + "\"" + muxfile + "\"" + " --no-subtitles" + " \"" + configfile + "out.mkv" + "\"" + " --language \"0:eng\"" + " --track-name \"0:MegumiDownloadFixed\"" + " \"" + configfile + "subs.ass" + "\"");
+
+            Console.WriteLine("Muxing subtitle track back");
+
+            Process remsub = new Process();
+            remsub.StartInfo.FileName = mkvmerge;
+            remsub.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            remsub.StartInfo.Arguments = "-o " + "\"" + muxfile + "\"" + " --no-subtitles" + " \"" + configfile + "out.mkv" + "\"" + " --language \"0:eng\"" + " --track-name \"0:MegumiDownloadFixed\"" + " \"" + configfile + "subs.ass" + "\"";
+            remsub.Start();
             remsub.WaitForExit();
-            var exitCode3 = remsub.ExitCode;
+
             File.Delete(configfile + "out.mkv");
             File.Delete(configfile + "subs.ass");
             File.Delete(temppath + "temppath.txt");
