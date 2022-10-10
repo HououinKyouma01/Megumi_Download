@@ -17,18 +17,19 @@ namespace Megumi_Download
         bool mkvextract = (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\" + "mkvextract.exe") ? true : false);
         string configfile;
         string muxfile;
+        string temppath;
         List<String> regexx = new List<String>();
         List<String> oldnames = new List<String>();
         List<String> newnames = new List<String>();
         public Remux(string temppath, string movelocalonly)
         {
-
+            this.temppath = temppath;
 
 
             if (movelocalonly == "OFF")
             {
-                configfile = File.ReadAllText(temppath + "MegumiDownloadTemp" + "\\" + "temppath.txt");
-                muxfile = File.ReadAllText(temppath + "MegumiDownloadTemp" + "\\" + "temppathfile.txt");
+                configfile = File.ReadAllText(temppath + "\\" + "temppath.txt");
+                muxfile = File.ReadAllText(temppath + "\\" + "temppathfile.txt");
 
             }
             if (movelocalonly == "ON")
@@ -147,8 +148,8 @@ namespace Megumi_Download
             var exitCode3 = remsub.ExitCode;
             File.Delete(configfile + "out.mkv");
             File.Delete(configfile + "subs.ass");
-           File.Delete(configfile);
-           File.Delete(muxfile);
+            File.Delete(temppath + "temppath.txt");
+            File.Delete(temppath + "temppathfile.txt");
         }
 
     }
