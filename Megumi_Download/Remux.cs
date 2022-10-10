@@ -24,21 +24,8 @@ namespace Megumi_Download
         public Remux(string temppath, string movelocalonly)
         {
             this.temppath = temppath;
-
-
-            if (movelocalonly == "OFF")
-            {
-                configfile = File.ReadAllText(temppath + "\\" + "temppath.txt");
-                muxfile = File.ReadAllText(temppath + "\\" + "temppathfile.txt");
-
-            }
-            if (movelocalonly == "ON")
-            {
-                configfile = File.ReadAllText(temppath + "temppath.txt");
-                muxfile = File.ReadAllText(temppath + "temppathfile.txt");
-
-            }
-
+            configfile = File.ReadAllText(temppath + "temppath.txt");
+            muxfile = File.ReadAllText(temppath + "temppathfile.txt");
 
             
         }
