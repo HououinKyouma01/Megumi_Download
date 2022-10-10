@@ -8,11 +8,11 @@ TL;DR
 
 OR
 
-2. Moving locally downladed filesto folders with series name/season number
+2. Moving locally downloaded files to folders with the series name and cataloging by season number
 
 3. Cataloging files and renaming them accordingly in compliance with kodi and TVDB naming format. 
 
-4. Automatic replacing words/names in subtitles (with regex) based on custom list and automatic remux on download/move (useful to restore original Japanese name order, to correct name romanization, replace localized words etc).
+4. **Automatic replacing words/names in subtitles** (using regex) based on custom list and automatic remux on download/move (useful to restore original Japanese name order, to correct name romanization, replace localized words etc).
 
 
 
