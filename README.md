@@ -1,7 +1,7 @@
 # Megumi_Download
 Anime downloader &amp; automatic demux, subtitle replace and mux
 
-This program performs 2 basic functions. More detailed description below. 
+This program performs 4 basic functions. More detailed description below. 
 
 TL;DR
 1. Downloading anime episodes from seedbox and moving them to folders with series name/season number
