@@ -101,13 +101,13 @@ namespace Megumi_Download
             text = text.Replace("J-j", "J-J");
             text = text.Replace("K-k", "K-K");
             text = text.Replace("L-l", "L-L");
-            text = text.Replace("M-m", "M-m");
+            text = text.Replace("M-m", "M-M");
             text = text.Replace("N-n", "N-N");
             text = text.Replace("O-o", "O-O");
             text = text.Replace("P-p", "P-P");
             text = text.Replace("Q-q", "Q-Q");
-            text = text.Replace("R-r", "R-r");
-            text = text.Replace("S-s", "S-s");
+            text = text.Replace("R-r", "R-R");
+            text = text.Replace("S-s", "S-S");
             text = text.Replace("T-t", "T-T");
             text = text.Replace("U-u", "U-U");
             text = text.Replace("W-w", "W-W");
