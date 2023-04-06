@@ -50,7 +50,7 @@ namespace Megumi_Download
                     {
                         for (int i = 0; i < groups.Count; i++)
                         {
-                            if (file.Name.Contains("[" + groups[i] + "]"))
+                            if ((file.Name.Contains("[" + groups[i] + "]")) || (file.Name.Contains("【" + groups[i] + "】")))
                             {
                                 if (File.Exists(tempdir + file.Name))
                                 {
