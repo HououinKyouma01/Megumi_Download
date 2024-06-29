@@ -1,3 +1,9 @@
+<h2>This version will no longer be updated. 
+ 
+ New multiplatform one written in python 
+ available [here](https://github.com/HououinKyouma01/ChouMegumiDownload/) with many improvements.</h2>
+
+
 # Megumi_Download
 Anime downloader &amp; automatic demux, subtitle replace and mux
 
